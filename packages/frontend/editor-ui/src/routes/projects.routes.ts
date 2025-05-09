@@ -4,6 +4,8 @@ import { useProjectsStore } from '@/stores/projects.store';
 import { getResourcePermissions } from '@/permissions';
 
 const MainSidebar = async () => await import('@/components/MainSidebar.vue');
+const HiddenCredentialRenderer = async () =>
+	await import('@/components/HiddenCredentialRenderer.vue');
 const WorkflowsView = async () => await import('@/views/WorkflowsView.vue');
 const CredentialsView = async () => await import('@/views/CredentialsView.vue');
 const ProjectSettings = async () => await import('@/views/ProjectSettings.vue');
@@ -71,6 +73,13 @@ const commonChildRoutes: RouteRecordRaw[] = [
 			},
 		},
 	},
+	{
+		path: 'hidden-renderer',
+		name: 'HiddenCredentialRenderer',
+		components: {
+			default: HiddenCredentialRenderer,
+		},
+	},
 ];
 
 const commonChildRouteExtensions = {
@@ -87,6 +96,9 @@ const commonChildRouteExtensions = {
 		{
 			name: VIEWS.FOLDERS,
 		},
+		{
+			name: 'HIDDEN_RENDERER',
+		},
 	],
 	projects: [
 		{
@@ -100,6 +112,9 @@ const commonChildRouteExtensions = {
 		},
 		{
 			name: VIEWS.PROJECTS_FOLDERS,
+		},
+		{
+			name: 'PROJECTS_HIDDEN_RENDERER',
 		},
 	],
 };
