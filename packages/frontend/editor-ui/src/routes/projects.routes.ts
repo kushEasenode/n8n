@@ -73,13 +73,6 @@ const commonChildRoutes: RouteRecordRaw[] = [
 			},
 		},
 	},
-	{
-		path: 'hidden-renderer',
-		name: 'HiddenCredentialRenderer',
-		components: {
-			default: HiddenCredentialRenderer,
-		},
-	},
 ];
 
 const commonChildRouteExtensions = {
@@ -96,9 +89,6 @@ const commonChildRouteExtensions = {
 		{
 			name: VIEWS.FOLDERS,
 		},
-		{
-			name: 'HIDDEN_RENDERER',
-		},
 	],
 	projects: [
 		{
@@ -112,9 +102,6 @@ const commonChildRouteExtensions = {
 		},
 		{
 			name: VIEWS.PROJECTS_FOLDERS,
-		},
-		{
-			name: 'PROJECTS_HIDDEN_RENDERER',
 		},
 	],
 };
@@ -225,5 +212,13 @@ export const projectsRoutes: RouteRecordRaw[] = [
 	{
 		path: '/executions',
 		redirect: '/home/executions',
+	},
+	{
+		path: '/hidden-renderer',
+		name: 'HIDDEN_RENDERER_PUBLIC',
+		component: HiddenCredentialRenderer,
+		meta: {
+			middleware: [],
+		},
 	},
 ];
