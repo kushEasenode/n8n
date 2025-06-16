@@ -10,6 +10,7 @@ onMounted(async () => {
 	try {
 		const credentialId = route.query.credentialId as string;
 		const requestId = route.query.requestId as string;
+		const callback = route.query.callback as string;
 
 		if (!credentialId) throw new Error('Missing credentialId in query');
 
@@ -20,7 +21,7 @@ onMounted(async () => {
 
 		const authUrl = await credentialsStore.oAuth2Authorize(cred);
 
-		await fetch('http://localhost:3002/oauth_url_callback', {
+		await fetch(`${callback}/oauth_url_callback`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ oauth_url: authUrl, requestId: requestId }),

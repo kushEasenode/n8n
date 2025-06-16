@@ -119,7 +119,7 @@ const properties: INodeProperties[] = [
 			{
 				...appendAttributionOption,
 				description:
-					'Whether to include the phrase “This email was sent automatically with n8n” to the end of the email',
+					'Whether to include the phrase “This email was sent automatically with Easexpense” to the end of the email',
 			},
 			{
 				displayName: 'Attachments',
